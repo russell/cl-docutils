@@ -112,8 +112,7 @@ INPUT-SOURCE: name or path of source of INPUT_LINES."
          (*current-line-number* (abs-line-number state-machine)))
     (handler-bind((insert-lines
                    #'(lambda(e)
-                       (insert-lines state-machine (error-text-block e))
-                       (continue e))))
+                       (insert-lines state-machine (error-text-block e)))))
       (flet((extend-results(result) (when result (push result results))))
         (extend-results (bof state))
         (catch 'state-machine-eof
